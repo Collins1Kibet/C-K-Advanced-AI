@@ -50,9 +50,9 @@ The AI will provide an answer to your question.
 I welcome contributions! Please fork the repository and submit pull requests.
 
 #### Acknowledgments
-**Streamlit**
-**Google Cloud**
-**Generative AI Models**
+- **Streamlit**
+- **Google Cloud**
+- **Generative AI Models**
 
 #### Contact
 For any questions or suggestions, please open an issue or contact me at collinskibet000@gmail.com.

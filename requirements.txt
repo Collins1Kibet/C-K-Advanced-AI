@@ -1,0 +1,9 @@
+streamlit
+streamlit-option-menu
+pillow
+google-generativeai
+python-dotenv
+gtts
+google-cloud-speech
+streamlit-webrtc
+av

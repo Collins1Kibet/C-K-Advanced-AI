@@ -49,7 +49,7 @@ The AI will provide an answer to your question.
 ###### Contributing
 I welcome contributions! Please fork the repository and submit pull requests.
 
-#### Acknowledgments
+## Acknowledgments
 - **Streamlit**
 - **Google Cloud**
 - **Generative AI Models**

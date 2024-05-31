@@ -47,7 +47,7 @@ Enter your question in the text area.
 The AI will provide an answer to your question.
 
 ###### Contributing
-We welcome contributions! Please fork the repository and submit pull requests.
+I welcome contributions! Please fork the repository and submit pull requests.
 
 #### Acknowledgments
 Streamlit
@@ -55,4 +55,4 @@ Google Cloud
 Generative AI Models
 
 #### Contact
-For any questions or suggestions, please open an issue or contact us at cobestkenya@gmail.com.
+For any questions or suggestions, please open an issue or contact me at cobestkenya@gmail.com.

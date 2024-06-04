@@ -53,6 +53,3 @@ I welcome contributions! Please fork the repository and submit pull requests.
 - **Streamlit**
 - **Google Cloud**
 - **Generative AI Models**
-
-#### Contact
-For any questions or suggestions, please open an issue or contact me at collinskibet000@gmail.com.

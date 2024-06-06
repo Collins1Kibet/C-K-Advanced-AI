@@ -8,22 +8,26 @@ import io
 import streamlit as st
 from streamlit_option_menu import option_menu
 from streamlit_webrtc import webrtc_streamer, WebRtcMode, AudioProcessorBase
-import av  # Import the av module
+import av 
 
+# Checking if the .env file exists and loading it
 if os.path.exists('.env'):
     load_dotenv('.env')
 
+# Function for getting the API Key from Streamlit Secrets
 def get_env_var(key, default_value=None):
     if key in st.secrets:
         return st.secrets[key]
     return os.getenv(key, default_value)
 
+# Setting up the Streamlit Web app Page
 st.set_page_config(
     page_title='Cobest AI',
     page_icon='🔍',
     layout='centered'
 )
 
+# Creating a Sidebar for Navigating to Various Pages
 with st.sidebar:
     selected = option_menu(menu_title='Cobest AI',
                            options=[
@@ -40,14 +44,17 @@ with st.sidebar:
                                 'question-square-fill'],
                             default_index=0)
 
+# Getting and configuring the API Key
 GOOGLE_API_KEY = get_env_var("GOOGLE_API_KEY")
 
 gen_ai.configure(api_key=GOOGLE_API_KEY)
 
+# AI Chatbot Function
 def load_gemini_pro_model():
     gemini_pro_model = gen_ai.GenerativeModel('gemini-pro')
     return gemini_pro_model
 
+# Speech Recognition and Text to Speech Functions
 def recognize_input_speech(audio_data):
     client = speech.SpeechClient()
     audio = speech.RecognitionAudio(content=audio_data)
@@ -65,29 +72,34 @@ def text_to_speech(text):
     tts.save("response.mp3")
     st.audio("response.mp3")
 
+# Function for Image Recognition and Captioning
 def gemini_pro_vision_response(prompt, image):
     gemini_pro_vision_model = gen_ai.GenerativeModel('gemini-pro-vision')
     response = gemini_pro_vision_model.generate_content([prompt, image])
     result = response.text
     return result
 
+# Funtion for Text Embedding
 def embedding_model_response(input_text):
     embedding_gemini_pro_model = "models/embedding-001"
     embedding_model = gen_ai.embed_content(model=embedding_gemini_pro_model, content=input_text, task_type='retrieval_document')
     return embedding_model
 
+# AI Response Function
 def gemini_pro_response(user_input):
     gemini_pro_model = gen_ai.GenerativeModel('gemini-pro')
     feedback = gemini_pro_model.generate_content(user_input)
     output = feedback.text
     return output
 
+# Role (Model to Assistant) translation Function for Streamlit
 def tranlates_role_for_streamlit(user_role):
     if user_role == 'model':
         return 'assistant'
     else:
         return user_role
-
+        
+# Modelling the Chatbot Page
 if selected == 'ChatBot':
     model = load_gemini_pro_model()
     st.title('🤖 Cobest ChatBot')
@@ -108,6 +120,7 @@ if selected == 'ChatBot':
 if 'voice_response' not in st.session_state:
     st.session_state.voice_response = None
     
+# Modelling the Voice Chat Page
 if selected == 'Voice Chat':
     st.title('🎙️ Voice Chat')
 
@@ -150,7 +163,7 @@ if selected == 'Voice Chat':
             if st.button('Play Response'):
                 text_to_speech(st.session_state.voice_response)
                 
-
+# Creating a functioning Image Captioning Page
 if selected == 'Image Captioning':
     st.title('📷 Cobest Snap Caption')
     uploaded_image = st.file_uploader('Upload an Image...', type=['jpg', 'jpeg', 'png'])
@@ -165,6 +178,7 @@ if selected == 'Image Captioning':
         with col2:
             st.info(caption)
 
+# Modelling the Text Embedding Page
 if selected == 'Embed Text':
     st.title('🖹 Embed Text')
     input_txt = st.text_area(label="", placeholder='Enter the text to get embeddings...')
@@ -172,6 +186,7 @@ if selected == 'Embed Text':
         response = embedding_model_response(input_txt)
         st.markdown(response)
 
+# Creating a Page for AI Response to any Question
 if selected == 'Ask me anything':
     st.title('❓ Ask Me a Question')
     text_area = st.text_area(label='', placeholder='Ask me anything...')

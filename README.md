@@ -46,9 +46,6 @@ Select "Ask Me Anything" from the sidebar.
 Enter your question in the text area.
 The AI will provide an answer to your question.
 
-###### Contributing
-I welcome contributions! Please fork the repository and submit pull requests.
-
 ## Acknowledgments
 - **Streamlit**
 - **Google Cloud**

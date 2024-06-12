@@ -1,6 +1,6 @@
-### Cobest AI - Streamlit Web App
+### Advanced AI - Streamlit Web App
 
-Welcome to Cobest AI, a versatile AI-powered web application built using Streamlit. The AI services offered by this web application includes a chatbot, voice chat, image captioning, text embedding, and general question answering.
+Welcome to Advanced AI, a versatile AI-powered web application built using Streamlit. The AI services offered by this web application includes a chatbot, voice chat, image captioning, text embedding, and general question answering.
 
 #### Features
 

@@ -29,7 +29,7 @@ st.set_page_config(
 
 # Creating a Sidebar for Navigating to Various Pages
 with st.sidebar:
-    selected = option_menu(menu_title='Cobest AI',
+    selected = option_menu(menu_title='C.K. Advanced AI',
                            options=[
                             'ChatBot',
                             'Voice Chat',
@@ -102,7 +102,7 @@ def tranlates_role_for_streamlit(user_role):
 # Modelling the Chatbot Page
 if selected == 'ChatBot':
     model = load_gemini_pro_model()
-    st.title('🤖 Cobest ChatBot')
+    st.title('🤖 C.K. ChatBot')
     if 'chat_session' not in st.session_state:
         st.session_state.chat_session = model.start_chat(history=[])
     for message in st.session_state.chat_session.history:
@@ -122,7 +122,7 @@ if 'voice_response' not in st.session_state:
     
 # Modelling the Voice Chat Page
 if selected == 'Voice Chat':
-    st.title('🎙️ Voice Chat')
+    st.title('🎙️ C.K. Voice Chat')
 
     class AudioProcessor(AudioProcessorBase):
         def __init__(self) -> None:
@@ -165,7 +165,7 @@ if selected == 'Voice Chat':
                 
 # Creating a functioning Image Captioning Page
 if selected == 'Image Captioning':
-    st.title('📷 Cobest Snap Caption')
+    st.title('📷 C.K. Snap Caption')
     uploaded_image = st.file_uploader('Upload an Image...', type=['jpg', 'jpeg', 'png'])
     if st.button('Generate Caption'):
         image = Image.open(uploaded_image)
@@ -180,7 +180,7 @@ if selected == 'Image Captioning':
 
 # Modelling the Text Embedding Page
 if selected == 'Embed Text':
-    st.title('🖹 Embed Text')
+    st.title('🖹 C.K. Embed Text')
     input_txt = st.text_area(label="", placeholder='Enter the text to get embeddings...')
     if st.button('Embed'):
         response = embedding_model_response(input_txt)

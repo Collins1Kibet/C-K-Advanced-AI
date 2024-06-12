@@ -17,7 +17,7 @@ Welcome to Advanced AI, a versatile AI-powered web application built using Strea
 - Required Python packages listed in `requirements.txt`
 
 ###### Link to my Webapp
-https://cobest-kenya-advanced-ai.streamlit.app/
+[https://cobest-kenya-advanced-ai.streamlit.app/](https://c-k-advanced-ai.streamlit.app/)
 
 #### Usage
 ##### ChatBot
